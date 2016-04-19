@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>two.js demo</title>
+<meta charset="utf-8">
+<!-- <script type="text/javascript" src="third-party/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="third-party/canvas.js"></script>
+<script type="text/javascript" src="third-party/underscore.js"></script>
+<script type="text/javascript" src="third-party/backbone.js"></script>
+<script type="text/javascript" src="third-party/events.js"></script> -->
+<script type="text/javascript" src="third-party/two.js"></script>
+<script src="//cdn.bootcss.com/dat-gui/0.5.1/dat.gui.js"></script>
+<script type="text/javascript" src="third-party/physics.js"></script>
+</head>
+<body>
+	<script>
+	//渐现的圆形
+	// var two = new Two({width:285,height:200}).appendTo(document.body);
+	// var circle = two.makeCircle(100,100,50);
+	// circle.fill = '#0000ff';
+	// circle.noStroke();
+	// two.bind('update', function(frameCount){
+	// 	if(circle.scale > 0.9999){
+	// 		circle.scale = 0;
+	// 	}
+	// 	var t = (1 - circle.scale) * 0.125;
+	// 	circle.scale += t;
+	// }).play();
+
+	//dat GUI控制的圆形  
+	var two = new Two({fullscreen:true}).appendTo(document.body);
+
+	///设置ui界面
+	var Controls = function(){
+		this.color0 = "#ff18ad";
+		this.color1 = "#fff800";
+		this.scale = 1.25;
+	}
+
+	var text = new Controls();
+	var gui = new dat.GUI();
+	gui.add(text,'scale',0,3).step(0.01);
+	gui.addColor(text, 'color0');
+	gui.addColor(text, 'color1');
+
+	//新建一个物理模拟，初始化物理模拟的一些参数
+	var physics = new Physics();
+	var points = [];
+	var i = 0;
+	var mass = 10;
+	var radius = two.height/5;
+	console.log(radius);
+	var strength = 0.0625;
+	var drag = 0.0;
+
+	//新建一个two.js的组
+	var maza = two.makeGroup();
+	for(i = 0; i < Two.Resolution; i++){
+
+		//新建一组到中心点距离相同的点
+          var pct = i / Two.Resolution;
+          var theta = pct * Math.PI * 2;
+
+		//ax ay是原始的圆上面的点
+          var ax = radius * Math.cos(theta);
+          var ay = radius * Math.sin(theta);
+
+		//用random函数对原始点数据稍加干扰，得到bx by
+          var variance = Math.random() * 0.5 + 0.5;
+          var bx = variance * ax;
+          var by = variance * ay;
+
+		//将原始点的位置信息和受到扰乱的点的位置信息分别储存在物理模拟系统的particle里
+          var origin = physics.makeParticle(mass, ax, ay)
+          var particle = physics.makeParticle(Math.random() * mass * 0.66 + mass * 0.33, bx, by);
+
+		//将弹簧效果应用到两组数据，可以让这些粒子永远是在离圆心等长的距离周围有机运动
+          var spring = physics.makeSpring(particle, origin, strength, drag, 0);
+          particle.shape = two.makeCircle(particle.position.x, particle.position.y, 0);
+          particle.position = particle.shape.translation;
+
+		//将有机运动的粒子位置信息加入points数列，以便后续使用
+          points.push(particle.position);
+      }
+
+      // 用points数组中的点的信息画一个类似圆形的连续封闭曲线       
+        var curve = new Two.Path(points, true, true);
+        curve.noStroke();
+
+//新建一个渐变设定
+        var linearGradient = two.makeLinearGradient(
+
+//前面两个参数是渐变的初始坐标和终止位置，后面两个参数是设置渐变颜色发生变化的节点
+          two.width / 2,- two.height /2,
+          two.width / 2, two.height ,
+          new Two.Stop(0, 'rgb(250,208,209)'),
+          new Two.Stop(1, 'rgb(141,164,208 ')
+        );
+//于是将图形用刚刚设定好的渐变填充
+        curve.fill = linearGradient;
+        curve.scale = text.scale;
+//将图形归入一开始建好的组
+        maza.add(curve);
+   
+        two
+          .bind('resize', resize)
+          .bind('update', function() {
+//在update里面绑定ui调整的更新
+          curve.fill=two.makeLinearGradient(
+          two.width / 2,- two.height /2,
+          two.width / 2, two.height ,
+          new Two.Stop(0, text.color0),
+          new Two.Stop(1, text.color1)
+        );
+            curve.scale = text.scale;
+//更新物理模拟结果
+            physics.update();
+          })
+          .play();
+
+
+//下面是一些响应式网页的设定，使得图形永远处在窗口的中央       
+        resize();
+        function resize() {
+          maza.translation.set(two.width / 2, two.height / 2);
+         
+		}
+	</script>
+
+</body>

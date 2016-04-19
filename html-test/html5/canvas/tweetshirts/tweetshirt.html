@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset = "utf-8">
+	<style>
+	canvas { border: 1px solid black;}
+	</style>
+</head>
+<body>
+	<canvas id="tshirtCanvas" width="600" height="200">
+		hey,you,yes YOU! upgrade your browser!!!
+	</canvas>
+
+	<form>
+
+		<P>
+			<label for="backgroundColor">Select background color:</label>
+<!-- 
+<label> 标签为 input 元素定义标注（标记）。
+label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。
+<label> 标签的 for 属性应当与相关元素的 id 属性相同。
+-->
+			<select id="backgroundColor">
+				<option value = "white" selected = "selected">White</option>
+				<option value = "black">Black</option>
+			</select>
+		</P>
+		<P>
+			<label for="shape">Circles or squares?</label>
+			<select id="shape">
+				<option value = "none" selected = "selected">Neither</option>
+				<option value = "circles">Circles</option>
+				<option value = "squares">Squares</option>
+			</select>
+		</P>
+		<P>
+			<label for="foregroundColor">Select text color:</label>
+			<select id="foregroundColor">
+				<option value = "black" selected = "selected">black</option>
+				<option value = "white">White</option>
+			</select>
+		</P>
+		<P>
+			<label for="tweets">Pick a tweet:</label>
+			<select id="tweets">
+			</select>
+		</P>
+		<p>
+			<input type="button" id = "previewButton" value = "Preview">
+		</p>
+	</form>
+	<script type = "text/javascript" src="../../Third-Party/jquery-1.11.3.js"></script>
+
+	<script src = "https://api.twitter.com/1.1/search/wickedsmartly.json?q=%23freebandnames&since_id=24012619984051000&max_id=250126199840518145&result_type=mixed&count=4&callback=updateTweets"></script>
+	<script type = "text/javascript" src = "tweetshirt.js"></script>
+	
+</body>
+</html>

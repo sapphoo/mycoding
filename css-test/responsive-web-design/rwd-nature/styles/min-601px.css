@@ -1,0 +1,62 @@
+#header #head{
+	float: left;
+	width: 50%;
+	box-sizing: border-box;
+	font-weight: 200;
+	font-size: 18px;
+	padding-right: 10px;
+	padding-left: 30px;
+	/*box-sizing 属性允许您以特定的方式定义匹配某个区域的特定元素
+	假如您需要并排放置两个带边框的框，可通过将 box-sizing 设置为 "border-box"。
+	这可令浏览器呈现出带有指定宽度和高度的框，并把边框和内边距放入框中
+	*/
+}
+
+#header #register{
+	float: right;
+	width: 50%;
+	box-sizing: border-box;
+	padding: 20px;
+	font-weight: 300;
+	text-align: right;
+}
+
+.clear{
+	clear: both;
+}
+
+#flip{
+	padding: 20px 5%;
+	/*2.在窄视窗上，我们没有很多的空间去放置内容，所以字体的大小以及粗细都会被大幅度缩小来适应屏幕。
+      在一个大的视窗上，我们需要考虑用户在大多数情况下都是离屏幕有一段距离的。 
+      为了提高内容的可读性，我们可以加大或者加粗字体，或者更改内边距padding值来让选定的区域更突出。
+      在我们的产品页面，我们会增加区域元素之间的内边距padding值到5%。同时我们会放大每个区域的抬头。*/
+	color: white;
+	font-family:Roboto, sans-serif;
+	background-image:url("../images/background.jpg");
+	height:500px;
+	background-size:cover;
+}
+
+.container{
+	margin: auto;
+	max-width:800px; 
+	/*1.限制最大宽度，这样文本以及段落就不会在大型屏幕上拉伸至一行*/
+}
+
+#animal {	
+	background-color: #eeeeee;
+}
+
+#content img{
+	width: 30%;
+	/*3.为了让图片在宽视窗中显示正常，他们会被缩小至容器宽度的30%并且横向排列（与纵向叠加对立）。 
+	我们会添加一些圆角(border radius)与阴影(box-shadow)来让图片看着更漂亮一些。*/
+	margin: 1%;
+	box-sizing: border-box;
+	border-radius: 50% 50%;
+	box-shadow: black 0px 0px 5px;
+}
+
+
+

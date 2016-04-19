@@ -1,0 +1,383 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet"  href="html.css"/>
+	<script src="html5/thirdParty/jquery-1.11.3.js"></script>
+	<script src="html.js"></script>
+	<!-- 内部样式表 -->
+	<style>
+	.inside {color: #ff0000}
+	</style>
+</head>
+
+<body>
+<!-- <body background="images/desert.jpg"> -->
+<a name="cp">基于内容的样式和物理样式</a>
+<p >
+	很多标签都可以用来改变文本的外观，并为文本关联其隐藏的含义。总地来说，这些标签可以分成两类：基于内容的样式★（content-based style）和物理样式☆（physical style）。
+	<h3><a name="c">★基于内容的样式（content-based style）</a></h3>
+	<ul>
+		<li>基于内容的样式标签会告诉浏览器它所包含的文本具有特定的含义、上下文或者用法。</li>
+		<li>基于内容的标签赋予含义，而不是格式化。</li>
+		<li>因为字体样式是通过语义线索来指定的，因此浏览器可以为用户选择一种合适的显示样式。对于盲人也有用。</li>
+		<li>一旦你开始使用基于内容的样式之后，文档将会更加一致，而且可以更好地帮助执行自动搜索和内容编辑。</li>
+		<li>应当尽可能地向浏览器提供上下文信息，并使用基于内容的样式。</li>
+		<li>尽管现在浏览器不过是以斜体或者粗体字来显示这些文本，但是将来的浏览器和各种文档生成工具可能会以非常有创建的方式来利用这些基于内容的样式。</li>
+	</ul>
+	<h3><a name="p">☆物理样式（physical style）</a></h3>
+	<ul>
+		<li>在使用 HTML 或 XHTML 时，除非极少情况下，都应该避免使用物理标签。</li>
+		
+	</ul>
+</p>
+
+<hr />
+<!-- 无意义的粗体 -->
+<b>This text is bold</b>&nbsp&nbsp&nbsp&nbsp<b>☆定义无意义的粗体</b>
+<br />
+<!-- 强调粗体 -->
+<strong>This text is strong</strong>&nbsp&nbsp&nbsp&nbsp<strong>★定义强调粗体</strong>
+<br />
+<!-- 无意义的斜体 -->
+<i>This text is italic</i>&nbsp&nbsp&nbsp&nbsp<i>☆定义无意义的斜体</i>
+<br />
+<!-- 强调斜体 -->
+<em>This text is emphasized</em>&nbsp&nbsp&nbsp&nbsp<em>★定义强调斜体</em>
+<br />
+<!-- 大 -->
+<big>This text is big</big>&nbsp&nbsp&nbsp&nbsp<big>☆定义大</big>
+<br />
+<!-- 小 -->
+<small>This text is small</small>&nbsp&nbsp&nbsp&nbsp<small>☆定义小</small>
+<br />
+<!-- 下标 -->
+This text contains
+<sub>subscript</sub>&nbsp&nbsp&nbsp&nbsp<sub>☆定义下标</sub>
+<br />
+<!-- 上标 -->
+This text contains
+<sup>superscript</sup>&nbsp&nbsp&nbsp&nbsp<sup>☆定义上标</sup>
+<br />
+
+
+<!-- 缩写 -->
+<hr />
+<br />
+<abbr title="etcetera">etc.</abbr>&nbsp&nbsp&nbsp&nbsp<abbr title="缩写">★缩</abbr>
+<br />
+<!-- 首字母缩写 -->
+<acronym title="etcetera">etc.</acronym>&nbsp&nbsp&nbsp&nbsp<acronym title="首字母 缩写">★首缩</acronym>
+<br />
+
+<!-- 预格式文本 -->
+<!-- 保留空格和换行 -->
+<!-- 适合显示计算机代码 -->
+<hr />
+<br />
+<pre>
+预格式文本,适合显示计算机代码
+for i = 1 to 10  
+     print i
+next i
+</pre>
+
+<!--这些标签常用于显示计算机/编程代码 -->
+<code>这些标签常用于显示计算机/编程代码</code>
+<br />
+<code>Computer code</code>&nbsp&nbsp&nbsp&nbsp<code>★定义计算机代码</code>
+<br />
+<kbd>Keyboard input</kbd>&nbsp&nbsp&nbsp&nbsp<kbd>★定义键盘码</kbd>
+<br />
+<tt>Teletype text</tt>&nbsp&nbsp&nbsp&nbsp<tt>☆定义打字机代码</tt>
+<br />
+<samp>Sample text</samp>&nbsp&nbsp&nbsp&nbsp<samp>★定义计算机代码样本</samp>
+<br />
+<var>Computer variable</var>&nbsp&nbsp&nbsp&nbsp<var>★定义变量</var>
+<br />
+
+<!-- bi-directional override (bdo)，right to left -->
+<hr />
+<br />
+<bdo dir="rtl">
+向方字文义定，odb// Here is some Hebrew text. 
+</bdo>
+<br />
+
+<!-- 长引用和短引用 -->
+<hr />
+<blockquote>
+这是长的引用。浏览器会插入换行和外边距。<br />这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。
+</blockquote>
+<q>
+这是短的引用。浏览器不会有任何特殊的呈现。
+</q>
+
+<!-- 删除和插入效果 -->
+<hr />
+<p>
+	删除和插入效果 <br />
+	一打有<del>二十</del><ins>十二</ins>件。 <br />
+	一些老式的浏览器会把删除文本和下划线文本显示为普通文本。
+</p>
+
+<!-- 没有下划线的链接 -->
+<a href="http://www.baidu.com" style="text-decoration:none">
+	这是一个没有下划线的链接
+</a>
+
+<p class="inside">演示内部样式表</p>
+<p style="color:#00ff00;">演示内联样式表</p>
+
+<p>
+	<a href="https://www.baidu.com" name="baidu" target="_blank">
+		<img src="images/baidu.png" alt="baidu一下"/>
+	</a>
+</p>
+
+<a href="#cp">查看基于内容的样式和物理样式</a><br/>
+<a href="#c">基于内容的样式</a><br/>
+<a href="#p">物理样式</a><br/>
+
+<a name="imageAlign">图像在文字中对齐方式</a>
+<p>图片<img src="images/eg_cute.gif"  alt="default"/>默认</p>
+<p>图片<img src="images/eg_cute.gif" align="top" alt="top"/>靠上</p>
+<p>图片<img src="images/eg_cute.gif" align="middle" alt="middle"/>居中</p>
+<p>图片<img src="images/eg_cute.gif" align="bottom" alt="bottom"/>靠下</p>
+<p>
+<img src ="images/eg_cute.gif" align ="left"> 
+带有图像的一个段落。图像的 align 属性设置为 "left"。图像将浮动到文本的左侧。
+</p>
+
+<p>
+<img src ="images/eg_cute.gif" align ="right"> 
+带有图像的一个段落。图像的 align 属性设置为 "right"。图像将浮动到文本的右侧。
+</p>
+<br/>
+
+<table border="1">
+<tr>
+<th>姓名</th>
+<th colspan="2">电话</th>
+</tr>
+<tr>
+<td>hh</td>
+<td>&nbsp;</td>
+<td>186xxxx7658</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>687647398</td>
+<td>135xxxx9887</td>
+</tr>
+</table>
+
+<table border="1">
+<tr>
+<th>姓名</th>
+<td>hh</th>
+</tr>
+<tr>
+<th rowspan="2">电话</td>
+<td>186xxxx7658</td>
+</tr>
+<tr>
+<td>687647398</td>
+</tr>
+</table>
+
+<table width="400" border="1">
+ <tr>
+  <th align="left">消费项目....</th>
+  <th align="right">一月</th>
+  <th align="right">二月</th>
+ </tr>
+ <tr>
+  <td align="left">衣服</td>
+  <td align="right">$241.10</td>
+  <td align="right">$50.20</td>
+ </tr>
+ <tr>
+  <td align="left">化妆品</td>
+  <td align="right">$30.00</td>
+  <td align="right">$44.45</td>
+ </tr>
+ <tr>
+  <td align="left">食物</td>
+  <td align="right">$730.40</td>
+  <td align="right">$650.00</td>
+ </tr>
+ <tr>
+  <th align="left">总计</th>
+  <th align="right">$1001.50</th>
+  <th align="right">$744.65</th>
+ </tr>
+</table>
+
+<p><b>注释：</b>frame 属性无法在 Internet Explorer 中正确地显示。</p>
+
+<p>Table with frame="box":</p>
+<table frame="box">
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+</table>
+
+<p>Table with frame="above":</p>
+<table frame="above">
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+</table>
+
+<p>Table with frame="below":</p>
+<table frame="below">
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+</table>
+
+<p>Table with frame="hsides":</p>
+<table frame="hsides">
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+</table>
+
+<p>Table with frame="vsides":</p>
+<table frame="vsides">
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+</table>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Savings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>January</td>
+      <td>$100</td>
+    </tr>
+    <tr>
+      <td>February</td>
+      <td>$80</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Sum</td>
+      <td>$180</td>
+    </tr>
+  </tfoot>
+</table>
+
+<ul type="disc">
+ <li>苹果</li>
+ <li>香蕉</li>
+ <li>柠檬</li>
+ <li>桔子</li>
+</ul>  
+
+<!-- <h4>Circle 项目符号列表：</h4> -->
+<ul type="circle">
+ <li>苹果</li>
+ <li>香蕉</li>
+ <li>柠檬</li>
+ <li>桔子</li>
+</ul>  
+
+<!-- <h4>Square 项目符号列表：</h4> -->
+<ul type="square">
+ <li>苹果</li>
+ <li>香蕉</li>
+ <li>柠檬</li>
+ <li>桔子</li>
+</ul>
+<br class="clear"/>
+
+
+<!-- <h4>数字列表：</h4> -->
+<ol type="1">
+ <li>苹果</li>
+ <li>香蕉</li>
+ <li>柠檬</li>
+ <li>桔子</li>
+</ol>  
+
+<!-- <h4>字母列表：</h4> -->
+<ol type="A">
+ <li>苹果</li>
+ <li>香蕉</li>
+ <li>柠檬</li>
+ <li>桔子</li>
+</ol>  
+
+<!-- <h4>小写字母列表：</h4> -->
+<ol type="a">
+ <li>苹果</li>
+ <li>香蕉</li>
+ <li>柠檬</li>
+ <li>桔子</li>
+</ol>  
+
+<!-- <h4>罗马字母列表：</h4> -->
+<ol type="I">
+ <li>苹果</li>
+ <li>香蕉</li>
+ <li>柠檬</li>
+ <li>桔子</li>
+</ol>  
+
+<!-- <h4>小写罗马字母列表：</h4> -->
+<ol type="i">
+ <li>苹果</li>
+ <li>香蕉</li>
+ <li>柠檬</li>
+ <li>桔子</li>
+</ol> 
+<br class="clear"/>
+
+<h4>一个定义列表：</h4>
+
+<dl>
+   <dt>计算机</dt>
+   <dd>用来计算的仪器 ... ...</dd>
+   <dt>显示器</dt>
+   <dd>以视觉方式显示信息的装置 ... ...</dd>
+</dl>
+
+<div id="goToTop">
+	<img src="goToTop.png"/>
+</div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!docytype html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<style>
+	/*viewport 和 width继承*/
+	html{
+		/*width:50%;*/
+		background-color: black;
+	}
+	body{
+		width:50%;
+		/*background-color: blue;*/
+	}
+	p{
+		width:50%;
+		/*background-color: green;*/
+	}
+
+	/*position相关*/
+	.box { 
+   	   display: inline-block; 
+	   background: red; 
+	   width: 100px; 
+	   height: 100px; 
+	   float: left; 
+	   margin: 20px; 
+	   color: white; 
+	}
+
+	/*#one { position: relative; }*/
+	#two { 
+		position: absolute; 
+		top: 20px; 
+		right: 20px; 
+	}
+
+	#three{
+		position: fixed;
+		top:20px;
+		left:20px;
+	}
+    
+    /*float相关*/
+    ul, #numbered {
+	    border: 1em solid #69b;
+	    padding-right:1em;
+	    float:left;
+	}
+
+	h3{
+		clear:left;
+	}
+
+	img{
+		position:absolute;
+		/*或者position:fixed;*/
+		right:0px;
+		top:0px;
+	}
+
+	/*position:sticky;*/
+	dl {
+    	margin: 0;
+	    padding: 24px 0 0 0;
+	}
+	
+	dt {
+	    background: #B8C1C8;
+	    border-bottom: 1px solid #989EA4;
+	    border-top: 1px solid #717D85;
+	    color: #FFF;
+	    font: bold 18px/21px Helvetica, Arial, sans-serif;
+	    margin: 0;
+	    padding: 2px 0 0 12px;
+	    position: -webkit-sticky;
+	    position: sticky;
+	    width: 99%;
+	    top: 0px;
+	}
+	
+	dd {
+	    font: bold 20px/45px Helvetica, Arial, sans-serif;
+	    margin: 0;
+	    padding: 0 0 0 12px;
+	    white-space: nowrap;
+	}
+	
+	dd + dd {
+	    border-top: 1px solid #CCC
+	}
+	
+
+	</style>
+	<script>
+	
+	</script>
+</head>
+<body>
+	<!-- <p>50%<p> -->
+	<div class="box" id="one">One</div>
+	<div class="box" id="two">Two</div>
+	<div class="box" id="three">Three</div>
+	<div class="box" id="four">Four</div>
+
+<!-- 	<h3>(A)The Oceans</h3>
+	<ul style="">
+		<li>Arctic</li>
+		<li>Atlantic</li>
+		<li>Pacific</li>
+		<li>Indian</li>
+		<li>Southern</li>
+	</ul>
+    <h3>Numbered paragraphs</h3>
+	<ol id="numbered">
+	  <li>Lorem ipsum</li>
+	  <li>Dolor sit</li>
+	  <li>Amet consectetuer</li>
+	  <li>Magna aliquam</li>
+	  <li>Autem veleum</li>
+	</ol>
+
+	<img id="fixed-pin" src="Yellow-pin.png" alt="Yellow map pin">
+ -->
+ <!-- position:sticky;电话簿 -->
+	<!-- <div>
+    <dl>
+        <dt>A</dt>
+        <dd>Andrew W.K.</dd>
+        <dd>Apparat</dd>
+        <dd>Arcade Fire</dd>
+        <dd>At The Drive-In</dd>
+        <dd>Aziz Ansari</dd>
+    </dl>
+    <dl>
+        <dt>B</dt>
+        <dd>Battles</dd>
+        <dd>Biz Markie</dd>
+        <dd>The Black Keys</dd>
+        <dd>Blakroc</dd>
+        <dd>Broken Social Scene</dd>
+    </dl>
+    <dl>
+        <dt>C</dt>
+        <dd>Chromeo</dd>
+        <dd>Common</dd>
+        <dd>Converge</dd>
+        <dd>Crystal Castles</dd>
+        <dd>Cursive</dd>
+    </dl>
+    <dl>
+        <dt>D</dt>
+        <dd>Daft Punk</dd>
+        <dd>David Bazan</dd>
+        <dd>Death from Above 1979</dd>
+        <dd>Delorean</dd>
+    </dl>
+    <dl>
+        <dt>E</dt>
+        <dd>Explosions In The Sky</dd>
+    </dl>
+    <dl>
+        <dt>F</dt>
+        <dd>Fear Before The March Of Flames</dd>
+        <dd>The Fire Theft</dd>
+        <dd>Flight of the Conchords</dd>
+        <dd>Foo Fighters</dd>
+    </dl>
+    <dl>
+        <dt>G</dt>
+        <dd>The Get Up Kids</dd>
+        <dd>Girl Talk</dd>
+        <dd>godspeed you! black emperor</dd>
+        <dd>Guns N' Roses</dd>
+    </dl>
+    <dl>
+        <dt>H</dt>
+        <dd>Haddaway</dd>
+        <dd>Hot Chip</dd>
+        <dd>Hot Hot Heat</dd>
+    </dl>
+    <dl>
+        <dt>I</dt>
+        <dd>Immaculate Machine</dd>
+        <dd>Imogen Heap</dd>
+        <dd>Interpol</dd>
+    </dl>
+    <dl>
+        <dt>J</dt>
+        <dd>James Blake</dd>
+        <dd>Japandroids</dd>
+        <dd>Jimmy Eat World</dd>
+        <dd>The Juan MacLean</dd>
+    </dl>
+    <dl>
+        <dt>K</dt>
+        <dd>Kings Go Forth</dd>
+        <dd>Kings of Leon</dd>
+    </dl>
+    <dl>
+        <dt>L</dt>
+        <dd>Lady Sovereign</dd>
+        <dd>LCD Soundsystem</dd>
+        <dd>Lykke Li</dd>
+    </dl>
+    <dl>
+        <dt>M</dt>
+        <dd>M.I.A.</dd>
+        <dd>Madball</dd>
+        <dd>Major Lazer</dd>
+        <dd>Mount Kimbie</dd>
+    </dl>
+    <dl>
+        <dt>N</dt>
+        <dd>Neutral Milk Hotel</dd>
+        <dd>New Ruins</dd>
+        <dd>Nirvana</dd>
+    </dl>
+    <dl>
+        <dt>O</dt>
+        <dd>Of Montreal</dd>
+        <dd>Open Hand</dd>
+        <dd>Outkast</dd>
+    </dl>
+    <dl>
+        <dt>P</dt>
+        <dd>Parts and Labor</dd>
+        <dd>Pharoahe Monch</dd>
+        <dd>Pixies</dd>
+    </dl>
+    <dl>
+        <dt>R</dt>
+        <dd>Radiohead</dd>
+        <dd>Ratatat</dd>
+        <dd>RJD2</dd>
+        <dd>The Roots</dd>
+    </dl>
+    <dl>
+        <dt>S</dt>
+        <dd>Sam Cooke</dd>
+        <dd>Santigold</dd>
+        <dd>Shai Hulud</dd>
+        <dd>Sinai Beach</dd>
+        <dd>Sleigh Bells</dd>
+        <dd>Small Sins</dd>
+        <dd>Snoop Dogg</dd>
+        <dd>Spoon</dd>
+        <dd>Stars</dd>
+        <dd>Strongarm</dd>
+        <dd>Sunny Day Real Estate</dd>
+    </dl>
+    <dl>
+        <dt>T</dt>
+        <dd>Ted Leo & The Pharmacists</dd>
+        <dd>T-Pain</dd>
+        <dd>Thrice</dd>
+        <dd>TV On The Radio</dd>
+        <dd>Two Gallants</dd>
+    </dl>
+</div> -->
+</body>
+</html>

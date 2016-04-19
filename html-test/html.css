@@ -1,0 +1,15 @@
+ul[type],ol[type]{
+	float:left;
+}
+
+br{
+	clear:both;
+}
+
+#goToTop{
+	display:none;
+	position:fixed;
+	right:50px;
+	bottom:50px;
+}
+
